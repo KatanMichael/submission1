@@ -6,28 +6,46 @@ using namespace std;
 
 Collection::Collection(int radius,int width,int height,int color)
 {
+	int x=0;
 	count=width*height;
-    circles=new Circle*[height];
-	for(int i=0;i<height;i++)
-	{
-		circles[i]=new Circle [width];
-		for(int j=0;j<width;j++)
+    circles=new Circle*[count];
+		for(int i=0;i<height;i++)
 		{
-			circles[i]=new Circle(j,i+1,radius,color);
+			for(int j=0;j<width;j++)
+			{
+				circles[x]=new Circle(2*j*radius,2*i*radius,radius,color);
+				x++;
+			
+			}
+		
 		}
-	}
 }
 
 Collection ::~Collection()
 {
+	for(int i=0;i<count;i++)
+	{
+		delete circles[i];
+	}
+	delete circles;
 }
 
 void Collection::print()const
 {
-	cout<<count<<endl;
-	for(int i=0 ;i<sizeof(circles);i++)
-		for(int j=0;j<sizeof(circles[i]);j++)
+	for(int i=0 ;i<count;i++)
+	{
+		circles[i]->print();   //circles[i][0].print();
+	}
+}
+
+Circle& Collection:: getCircleAt(const Point &p)
+{
+	for(int i=0 ;i<count;i++)
+	{
+		if(circles[i]->contains(p))    //if(circles[i][0].contains(p))
 		{
-			circles[i]->print();
+			return *(circles[i]);     //return circles[i][0];
 		}
+	}
+
 }

@@ -8,12 +8,14 @@ using namespace std;
 
 void main()
 {
-	Point test(0,0);
-	test.print();
-	Circle testing(0,0,3,4);
-	Collection tess(2,3,5,9);
-	testing.print();
-	cout<<testing.contains(test)<<endl;
-	tess.print();
+	
+	
+	Collection g(4, 3, 2, 0);
+	cout << "-- before setColor(2) --" << endl;
+	g.print();
+	Point p(5, 1);
+	g.getCircleAt(p).setColor(2);
+	cout << "-- after setColor(2) --" << endl;
+	g.print();
 	system("pause");
 }

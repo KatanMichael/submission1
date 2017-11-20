@@ -8,8 +8,16 @@ using namespace std;
 
 Circle::Circle(int x,int y,int r ,int color):center(x,y),radius(r),color(color)
 {
+	cout<<"the circle ";
+	this->center.print();
+	cout<<"constance"<<endl;
 }
-
+Circle::~Circle()
+{
+	cout<<"the circle ";
+	this->center.print();
+	cout<<"destroyed"<<endl;
+}
 int Circle::getColor()const
 {
 	return this->color;

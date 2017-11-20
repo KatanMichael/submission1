@@ -5,7 +5,8 @@
 class Circle
 {
 public:
-Circle(int x=0, int y=0, int r=0, int color=0);     //difult constractor
+Circle(int x, int y, int r, int color); 
+~Circle();
 int getColor() const;
 void setColor(int color);
 bool contains(const Point &p) const;
