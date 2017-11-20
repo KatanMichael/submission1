@@ -1,22 +1,21 @@
 #include <iostream>
 #include "Circle.h"
 #include"point.h"
-#include <Math.h>
 
 using namespace std;
 
 
 Circle::Circle(int x,int y,int r ,int color):center(x,y),radius(r),color(color)
 {
-	cout<<"the circle ";
+	/*cout<<"the circle ";                           //if you want follow after born object
 	this->center.print();
-	cout<<"constance"<<endl;
+	cout<<"constance"<<endl;*/
 }
 Circle::~Circle()
 {
-	cout<<"the circle ";
+	/*cout<<"the circle ";                         //if you want follow after death object
 	this->center.print();
-	cout<<"destroyed"<<endl;
+	cout<<"destroyed"<<endl;*/
 }
 int Circle::getColor()const
 {
@@ -30,12 +29,14 @@ void Circle::setColor(int color)
 
 bool Circle::contains(const Point &p)const
 {
-	int a,b;
-	double R;
-	a=pow(p.getX()-this->center.getX(),2.0);
-	b=pow(p.getY()-this->center.getY(),2.0);
-	R=pow(this->radius,2.0);
-	if(R>(a+b))
+	int a,b,R;
+	 
+	a=p.getX()-this->center.getX();
+	a=a*a;                                  //(x1-x2)^2
+	b=p.getY()-this->center.getY();
+	b=b*b;                                  //(y1-y2)^2
+	R=this->radius*this->radius;           // d^2
+	if(R>(a+b))                            //if( (d^2 )  >  (  (x1-x2)^2+(y1-y2)^2  )
 		return true;
 	else
 	   return false;
