@@ -35,7 +35,7 @@ bool Circle::contains(const Point &p)const
 	a=a*a;                                  //(x1-x2)^2
 	b=p.getY()-this->center.getY();
 	b=b*b;                                  //(y1-y2)^2
-	R=this->radius*this->radius;           // d^2
+	R=this->radius*this->radius;           // rudius^2
 	if(R>(a+b))                            //if( (d^2 )  >  (  (x1-x2)^2+(y1-y2)^2  )
 		return true;
 	else
